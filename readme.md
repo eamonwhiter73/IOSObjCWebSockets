@@ -16,7 +16,7 @@ RELEVANT OFFICIAL DOCUMENTATION:
   
   - NodeJS docs for TLS server that I use in index.js - https://nodejs.org/api/tls.html#tls_tls_ssl
 
-To use in your project, import `IOSObjCWebSockets.h` into your file, and also copy over `IOSObjCWebSockets.m to` the same directory as `IOSObjCWebSockets.h`. Instantiate `IOSObjCWebSockets` how you would any other object.
+To use in your project, import `IOSObjCWebSockets.h` into your file, and also copy over `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. Instantiate `IOSObjCWebSockets` how you would any other object.
 
 To start TLS - initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server.
 
