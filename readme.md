@@ -50,9 +50,9 @@ To send data:
 
     [self send_data:[@"10.0.0.225" UTF8String] port:[@"3000" UTF8String] data_param:data_param];
 
-You provide the ip and port for the server, and the dispatch_data_t object that contains the data you are sending.
+You provide the `ip` and port for the server, and the `dispatch_data_t` object that contains the data you are sending.
 
-Receiving data happens in this part of the receive_loop function, and you should handle the data that you receive there as you see fit:
+Receiving data happens in this part of the `receive_loop` function, and you should handle the data that you receive there as you see fit:
 
     - (void)receive_loop:(nw_connection_t)connection {
 
