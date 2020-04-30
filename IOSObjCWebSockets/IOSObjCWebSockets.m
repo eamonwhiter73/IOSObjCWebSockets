@@ -15,12 +15,38 @@
 
 @property (nonatomic) bool connected;        // used to decide when
 @property (nonatomic) nw_connection_t listener_connection;
+@property (nonatomic) const char* dns;
+@property (nonatomic) uint16_t tls_encryption;
 
 @end
 
 @implementation IOSObjCWebSockets
 
-@synthesize connected, listener_connection; //io is for dispatch_io, and listener_connection is to store the listener connection
+@synthesize tls_encryption, dns, connected, listener_connection; //io is for dispatch_io, and listener_connection is to store the listener connection
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        //init with default cipher
+        self.tls_encryption = tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256; //Default encryption
+    }
+    return self;
+}
+
+//Setter for cipher type
+- (void)set_encryption:(u_int16_t)encryption {
+    dispatch_sync(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        self.tls_encryption = encryption;
+    });
+}
+
+//Setter for DNS
+- (void)setDNS:(NSString*)dns {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+        self.dns = [dns UTF8String];
+    });
+}
 
 /*
 * Contains what is needed to make a successful TLS handshake between iOS and NodeJS server.
@@ -34,12 +60,12 @@
         sec_protocol_options_t sec_options = nw_tls_copy_sec_protocol_options(tls_options);
         
         //VERY IMPORTANT OPTIONS
-        sec_protocol_options_append_tls_ciphersuite(sec_options, tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256); //may need to change based on the encryption you are using
+        sec_protocol_options_append_tls_ciphersuite(sec_options, self.tls_encryption); //may need to change based on the encryption you are using
         
         sec_protocol_options_set_min_tls_protocol_version(sec_options, tls_protocol_version_TLSv10); //below TLSv1 is defnitely not advisable
         sec_protocol_options_set_max_tls_protocol_version(sec_options, tls_protocol_version_TLSv13); //set max TLS version to TLSv1.3 (you will probably be using TLSv1.2)
         
-        sec_protocol_options_set_tls_server_name(sec_options, [@"com.ewizard86.staff" UTF8String]); //VERY IMPORTANT, needed for connection to work. Must be the same as the DNS name that you are using for your server. See this for a great guide for how to create certificates that work with TLS and iOS -> https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
+        sec_protocol_options_set_tls_server_name(sec_options, self.dns); //VERY IMPORTANT, needed for connection to work. Must be the same as the DNS name that you are using for your server. See this for a great guide for how to create certificates that work with TLS and iOS -> https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
         
         sec_protocol_options_set_verify_block(sec_options, ^(sec_protocol_metadata_t  _Nonnull metadata, sec_trust_t  _Nonnull trust_ref, sec_protocol_verify_complete_t  _Nonnull complete) {
             

@@ -22,6 +22,8 @@
 - (void)start_connection:(nw_connection_t)connection;
 - (void)start_receive_loop:(nw_connection_t)connection;
 - (void)test:(UIButton*)sender;
+- (void)setDNS:(NSString*)dns;
+- (void)set_encryption:(u_int16_t)encryption;
 
 @end
 
