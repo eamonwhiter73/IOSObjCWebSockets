@@ -227,6 +227,26 @@
 }
 
 /*
+* send_data()
+* Send data using connection.
+*/
+
+- (void)send_data:(const char*)ip port:(const char*)port data_param:(dispatch_data_t)data_param {
+    nw_connection_t connection = [self create_outbound_connection:ip port:port];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self start_connection:connection]; //Start connection
+        [self start_receive_loop:connection]; //Start listener for "new" connection
+        nw_connection_send(connection, data_param, NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT, true, ^(nw_error_t  _Nullable error) {
+            if (error != NULL) {
+                NSLog(@"error with sending data: %@", error);
+            } else {
+                NSLog(@"####### data sent #######");
+            }
+        });
+    });
+}
+/*
 * test()
 * Send data test, fires when "Click to test" button is tapped.
 */
@@ -254,19 +274,8 @@
         dispatch_data_t data_param = dispatch_data_create(buf, data_len, dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
         
         //Create a "new" connection (everytime you send data requires a new connection, even if you are sending data to the same server as the previous connection)
-        nw_connection_t connection = [self create_outbound_connection:[@"10.0.0.225" UTF8String] port:[@"3000" UTF8String]];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self start_connection:connection]; //Start connection
-            [self start_receive_loop:connection]; //Start listener for "new" connection
-            nw_connection_send(connection, data_param, NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT, true, ^(nw_error_t  _Nullable error) {
-                if (error != NULL) {
-                    NSLog(@"error with sending data: %@", error);
-                } else {
-                    NSLog(@"####### data sent #######");
-                }
-            });
-        });
+        [self send_data:[@"10.0.0.225" UTF8String] port:[@"3000" UTF8String] data_param:data_param];
     }
     else {
         NSLog(@"nothing came through");
