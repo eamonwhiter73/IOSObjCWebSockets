@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD4C3D682456763E00C8220F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4C3D672456763E00C8220F /* Main.storyboard */; };
+		DDC594F3245525B800FAD04D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC594F2245525B800FAD04D /* AppDelegate.m */; };
+		DDC594F6245525B800FAD04D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC594F5245525B800FAD04D /* SceneDelegate.m */; };
+		DDC594F9245525B800FAD04D /* IOSObjCWebSockets.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC594F8245525B800FAD04D /* IOSObjCWebSockets.m */; };
+		DDC594FF245525B800FAD04D /* IOSObjCWebSockets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDC594FD245525B800FAD04D /* IOSObjCWebSockets.xcdatamodeld */; };
+		DDC59501245525BA00FAD04D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC59500245525BA00FAD04D /* Assets.xcassets */; };
+		DDC59504245525BA00FAD04D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC59502245525BA00FAD04D /* LaunchScreen.storyboard */; };
+		DDC59507245525BA00FAD04D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC59506245525BA00FAD04D /* main.m */; };
+		DDC59511245525BA00FAD04D /* IOSObjCWebSocketsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC59510245525BA00FAD04D /* IOSObjCWebSocketsTests.m */; };
+		DDC5951C245525BB00FAD04D /* IOSObjCWebSocketsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5951B245525BB00FAD04D /* IOSObjCWebSocketsUITests.m */; };
+		DDC5952E2455364000FAD04D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5952D2455364000FAD04D /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDC5950D245525BA00FAD04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDC594E6245525B800FAD04D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDC594ED245525B800FAD04D;
+			remoteInfo = IOSObjCWebSockets;
+		};
+		DDC59518245525BB00FAD04D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDC594E6245525B800FAD04D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDC594ED245525B800FAD04D;
+			remoteInfo = IOSObjCWebSockets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD4C3D672456763E00C8220F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DD4C3D6924571B7800C8220F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDC594EE245525B800FAD04D /* IOSObjCWebSockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSObjCWebSockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC594F1245525B800FAD04D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DDC594F2245525B800FAD04D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DDC594F4245525B800FAD04D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		DDC594F5245525B800FAD04D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		DDC594F7245525B800FAD04D /* IOSObjCWebSockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOSObjCWebSockets.h; sourceTree = "<group>"; };
+		DDC594F8245525B800FAD04D /* IOSObjCWebSockets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSObjCWebSockets.m; sourceTree = "<group>"; };
+		DDC594FE245525B800FAD04D /* IOSObjCWebSockets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IOSObjCWebSockets.xcdatamodel; sourceTree = "<group>"; };
+		DDC59500245525BA00FAD04D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDC59503245525BA00FAD04D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDC59505245525BA00FAD04D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC59506245525BA00FAD04D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DDC5950C245525BA00FAD04D /* IOSObjCWebSocketsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSObjCWebSocketsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC59510245525BA00FAD04D /* IOSObjCWebSocketsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSObjCWebSocketsTests.m; sourceTree = "<group>"; };
+		DDC59512245525BA00FAD04D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC59517245525BB00FAD04D /* IOSObjCWebSocketsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSObjCWebSocketsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDC5951B245525BB00FAD04D /* IOSObjCWebSocketsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSObjCWebSocketsUITests.m; sourceTree = "<group>"; };
+		DDC5951D245525BB00FAD04D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDC5952C2455364000FAD04D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../corona_pong/tofix2/tofix2/ViewController.h; sourceTree = "<group>"; };
+		DDC5952D2455364000FAD04D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../../corona_pong/tofix2/tofix2/ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDC594EB245525B800FAD04D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC59509245525BA00FAD04D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC59514245525BB00FAD04D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDC594E5245525B800FAD04D = {
+			isa = PBXGroup;
+			children = (
+				DDC594F0245525B800FAD04D /* IOSObjCWebSockets */,
+				DDC5950F245525BA00FAD04D /* IOSObjCWebSocketsTests */,
+				DDC5951A245525BB00FAD04D /* IOSObjCWebSocketsUITests */,
+				DDC594EF245525B800FAD04D /* Products */,
+				DDC5952F2455BB1900FAD04D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DDC594EF245525B800FAD04D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDC594EE245525B800FAD04D /* IOSObjCWebSockets.app */,
+				DDC5950C245525BA00FAD04D /* IOSObjCWebSocketsTests.xctest */,
+				DDC59517245525BB00FAD04D /* IOSObjCWebSocketsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDC594F0245525B800FAD04D /* IOSObjCWebSockets */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5952C2455364000FAD04D /* ViewController.h */,
+				DDC5952D2455364000FAD04D /* ViewController.m */,
+				DDC594F1245525B800FAD04D /* AppDelegate.h */,
+				DDC594F2245525B800FAD04D /* AppDelegate.m */,
+				DDC594F4245525B800FAD04D /* SceneDelegate.h */,
+				DDC594F5245525B800FAD04D /* SceneDelegate.m */,
+				DDC594F7245525B800FAD04D /* IOSObjCWebSockets.h */,
+				DDC594F8245525B800FAD04D /* IOSObjCWebSockets.m */,
+				DD4C3D672456763E00C8220F /* Main.storyboard */,
+				DDC59500245525BA00FAD04D /* Assets.xcassets */,
+				DDC59502245525BA00FAD04D /* LaunchScreen.storyboard */,
+				DDC59505245525BA00FAD04D /* Info.plist */,
+				DDC59506245525BA00FAD04D /* main.m */,
+				DDC594FD245525B800FAD04D /* IOSObjCWebSockets.xcdatamodeld */,
+			);
+			path = IOSObjCWebSockets;
+			sourceTree = "<group>";
+		};
+		DDC5950F245525BA00FAD04D /* IOSObjCWebSocketsTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDC59510245525BA00FAD04D /* IOSObjCWebSocketsTests.m */,
+				DDC59512245525BA00FAD04D /* Info.plist */,
+			);
+			path = IOSObjCWebSocketsTests;
+			sourceTree = "<group>";
+		};
+		DDC5951A245525BB00FAD04D /* IOSObjCWebSocketsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DDC5951B245525BB00FAD04D /* IOSObjCWebSocketsUITests.m */,
+				DDC5951D245525BB00FAD04D /* Info.plist */,
+			);
+			path = IOSObjCWebSocketsUITests;
+			sourceTree = "<group>";
+		};
+		DDC5952F2455BB1900FAD04D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD4C3D6924571B7800C8220F /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDC594ED245525B800FAD04D /* IOSObjCWebSockets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC59520245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSockets" */;
+			buildPhases = (
+				DDC594EA245525B800FAD04D /* Sources */,
+				DDC594EB245525B800FAD04D /* Frameworks */,
+				DDC594EC245525B800FAD04D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IOSObjCWebSockets;
+			productName = IOSObjCWebSockets;
+			productReference = DDC594EE245525B800FAD04D /* IOSObjCWebSockets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDC5950B245525BA00FAD04D /* IOSObjCWebSocketsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC59523245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSocketsTests" */;
+			buildPhases = (
+				DDC59508245525BA00FAD04D /* Sources */,
+				DDC59509245525BA00FAD04D /* Frameworks */,
+				DDC5950A245525BA00FAD04D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC5950E245525BA00FAD04D /* PBXTargetDependency */,
+			);
+			name = IOSObjCWebSocketsTests;
+			productName = IOSObjCWebSocketsTests;
+			productReference = DDC5950C245525BA00FAD04D /* IOSObjCWebSocketsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDC59516245525BB00FAD04D /* IOSObjCWebSocketsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDC59526245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSocketsUITests" */;
+			buildPhases = (
+				DDC59513245525BB00FAD04D /* Sources */,
+				DDC59514245525BB00FAD04D /* Frameworks */,
+				DDC59515245525BB00FAD04D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC59519245525BB00FAD04D /* PBXTargetDependency */,
+			);
+			name = IOSObjCWebSocketsUITests;
+			productName = IOSObjCWebSocketsUITests;
+			productReference = DDC59517245525BB00FAD04D /* IOSObjCWebSocketsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDC594E6245525B800FAD04D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Eamon White";
+				TargetAttributes = {
+					DDC594ED245525B800FAD04D = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					DDC5950B245525BA00FAD04D = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = DDC594ED245525B800FAD04D;
+					};
+					DDC59516245525BB00FAD04D = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = DDC594ED245525B800FAD04D;
+					};
+				};
+			};
+			buildConfigurationList = DDC594E9245525B800FAD04D /* Build configuration list for PBXProject "IOSObjCWebSockets" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDC594E5245525B800FAD04D;
+			productRefGroup = DDC594EF245525B800FAD04D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDC594ED245525B800FAD04D /* IOSObjCWebSockets */,
+				DDC5950B245525BA00FAD04D /* IOSObjCWebSocketsTests */,
+				DDC59516245525BB00FAD04D /* IOSObjCWebSocketsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDC594EC245525B800FAD04D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC59504245525BA00FAD04D /* LaunchScreen.storyboard in Resources */,
+				DDC59501245525BA00FAD04D /* Assets.xcassets in Resources */,
+				DD4C3D682456763E00C8220F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC5950A245525BA00FAD04D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC59515245525BB00FAD04D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDC594EA245525B800FAD04D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC5952E2455364000FAD04D /* ViewController.m in Sources */,
+				DDC59507245525BA00FAD04D /* main.m in Sources */,
+				DDC594F9245525B800FAD04D /* IOSObjCWebSockets.m in Sources */,
+				DDC594FF245525B800FAD04D /* IOSObjCWebSockets.xcdatamodeld in Sources */,
+				DDC594F3245525B800FAD04D /* AppDelegate.m in Sources */,
+				DDC594F6245525B800FAD04D /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC59508245525BA00FAD04D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC59511245525BA00FAD04D /* IOSObjCWebSocketsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDC59513245525BB00FAD04D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDC5951C245525BB00FAD04D /* IOSObjCWebSocketsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDC5950E245525BA00FAD04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDC594ED245525B800FAD04D /* IOSObjCWebSockets */;
+			targetProxy = DDC5950D245525BA00FAD04D /* PBXContainerItemProxy */;
+		};
+		DDC59519245525BB00FAD04D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDC594ED245525B800FAD04D /* IOSObjCWebSockets */;
+			targetProxy = DDC59518245525BB00FAD04D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDC59502245525BA00FAD04D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDC59503245525BA00FAD04D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDC5951E245525BB00FAD04D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DDC5951F245525BB00FAD04D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDC59521245525BB00FAD04D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSockets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDC59522245525BB00FAD04D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSockets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSockets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDC59524245525BB00FAD04D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSocketsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSObjCWebSockets.app/IOSObjCWebSockets";
+			};
+			name = Debug;
+		};
+		DDC59525245525BB00FAD04D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSocketsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSocketsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IOSObjCWebSockets.app/IOSObjCWebSockets";
+			};
+			name = Release;
+		};
+		DDC59527245525BB00FAD04D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSocketsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSocketsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IOSObjCWebSockets;
+			};
+			name = Debug;
+		};
+		DDC59528245525BB00FAD04D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6U9867H5L6;
+				INFOPLIST_FILE = IOSObjCWebSocketsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eamon.IOSObjCWebSocketsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IOSObjCWebSockets;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDC594E9245525B800FAD04D /* Build configuration list for PBXProject "IOSObjCWebSockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC5951E245525BB00FAD04D /* Debug */,
+				DDC5951F245525BB00FAD04D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDC59520245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSockets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC59521245525BB00FAD04D /* Debug */,
+				DDC59522245525BB00FAD04D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDC59523245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSocketsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC59524245525BB00FAD04D /* Debug */,
+				DDC59525245525BB00FAD04D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDC59526245525BB00FAD04D /* Build configuration list for PBXNativeTarget "IOSObjCWebSocketsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDC59527245525BB00FAD04D /* Debug */,
+				DDC59528245525BB00FAD04D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DDC594FD245525B800FAD04D /* IOSObjCWebSockets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DDC594FE245525B800FAD04D /* IOSObjCWebSockets.xcdatamodel */,
+			);
+			currentVersion = DDC594FE245525B800FAD04D /* IOSObjCWebSockets.xcdatamodel */;
+			path = IOSObjCWebSockets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DDC594E6245525B800FAD04D /* Project object */;
+}
