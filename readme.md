@@ -1,19 +1,21 @@
-#IOSObjCWebSockets
+**IOSObjCWebSockets**
 
 Code to help with TLS web sockets, and their respective connections between iOS and a basic NodeJS TLS Server.
 
 IMPORTANT RESOURCES
 
-https://support.apple.com/en-us/HT210176 - new (as of iOS 13) Apple TLS restrictions.
+  - https://support.apple.com/en-us/HT210176 - new (as of iOS 13) Apple TLS restrictions.
 
-https://jamielinux.com/docs/openssl-certificate-authority/introduction.html - tutorial for creating SSL certificates - a certificate authority, intermediate certificate authority, and server/client certificates. Follow exactly. NOTE: I have included my configuration files for this process openssl_intermediate_ca.conf is referenced in the tutorial as openssl.conf, it is just in a different directory (intermediate) than the openssl.conf for the main certificate authority. Follow the tutorial and you will see - also I used .conf as the extension instead of .cnf, which is used in the tutorial, so if you get error messages, check to make sure you are using the right extension for the openssl.conf file you are using. You can use either, my choice to use .conf was an arbitrary choice due to habits
+  - https://jamielinux.com/docs/openssl-certificate-authority/introduction.html - tutorial for creating SSL certificates - a certificate authority, intermediate certificate authority, and server/client certificates. Follow exactly. NOTE: I have included my configuration files for this process openssl_intermediate_ca.conf is referenced in the tutorial as openssl.conf, it is just in a different directory (intermediate) than the openssl.conf for the main certificate authority. Follow the tutorial and you will see - also I used .conf as the extension instead of .cnf, which is used in the tutorial, so if you get error messages, check to make sure you are using the right extension for the openssl.conf file you are using. You can use either, my choice to use .conf was an arbitrary choice due to habits
 
-https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework?language=objc - A helpful project to analyze and understand if you are trying to do this, it is written in C, but I adopted a lot of what I am doing from that project.
+  - https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework?language=objc - A helpful project to analyze and understand if you are trying to do this, it is written in C, but I adopted a lot of what I am doing from that project.
 
 RELEVANT OFFICIAL DOCUMENTATION:
 
-The Apple documentation for Network package (Network.h) is helpful, it is the basis for the iOS side of the TLS socket.
-NodeJS docs for TLS server that I use in index.js - https://nodejs.org/api/tls.html#tls_tls_ssl
+  - The Apple documentation for Network package (Network.h) is helpful, it is the basis for the iOS side of the TLS socket.
+  
+  - NodeJS docs for TLS server that I use in index.js - https://nodejs.org/api/tls.html#tls_tls_ssl
+
 To use in your project, import IOSObjCWebSockets.h into your file, and also copy over IOSObjCWebSockets.m to the same directory as `IOSObjCWebSockets.h`.
 
 To start TLS - initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server.
