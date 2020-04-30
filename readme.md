@@ -1,6 +1,6 @@
 **IOSObjCWebSockets**
 
-Code to help with TLS web sockets, and their respective connections between iOS and a basic NodeJS TLS Server.
+Class to help with TLS web sockets, and their respective connections between iOS and a basic NodeJS TLS Server.
 
 IMPORTANT RESOURCES
 
