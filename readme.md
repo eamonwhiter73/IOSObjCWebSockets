@@ -20,6 +20,8 @@ RELEVANT OFFICIAL DOCUMENTATION:
 
 To use in your project, import `IOSObjCWebSockets.h` into your file, and also copy over `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. Instantiate `IOSObjCWebSockets` how you would any other object.
 
+See my `ViewController` for how to implement the class.
+
 To start TLS - initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server.
 
     const char *localhost = [@"127.0.0.1" UTF8String]; //localhost for your iPhone's listening.
