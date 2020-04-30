@@ -313,7 +313,14 @@
             const char* received_str = [nscontent bytes];
             NSString* rec_cast = [[NSString alloc] initWithBytes:received_str length:[nscontent length] encoding:NSUTF8StringEncoding];
             
-            NSLog(@"%@", rec_cast);
+            id<IOSObjCWebSocketsDelegate> strongDelegate = self.delegate;
+
+            // Our delegate method is optional, so we should
+            // check that the delegate implements it
+            if ([strongDelegate respondsToSelector:@selector(receive_data:)]) {
+                [strongDelegate receive_data:rec_cast];
+            }
+            //NSLog(@"%@", rec_cast);
         }
         else {
             // No content, so directly schedule the next receive
