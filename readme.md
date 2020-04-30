@@ -54,26 +54,11 @@ To send data:
 
 You provide the `ip` and port for the server, and the `dispatch_data_t` object that contains the data you are sending.
 
-Receiving data happens in this part of the `receive_loop` function, and you should handle the data that you receive there as you see fit:
+You can receive data by implementing this delegate function:
 
-    - (void)receive_loop:(nw_connection_t)connection {
+    - (void)receive_data:(NSString*)data_as_string;
 
-    ....
-
-    if (content != NULL) {
-        schedule_next_receive = [schedule_next_receive copy]; //For next receive
-        
-        //Turn received data into string for NSLog
-        NSData* nscontent = (NSData*)content;
-        const char* received_str = [nscontent bytes];
-        NSString* rec_cast = [[NSString alloc] initWithBytes:received_str length:[nscontent length] encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"%@", rec_cast);
-    }
-
-    ....
-
-For the purposes of my example, I am only logging what I receive.
+I am returning the data as an `NSString` for ease of logging, you should also be able to convert it to whatever you need from an `NSString`.
 
 On the server side, I am using a NodeJS TLS server, there are a few important parts of the server side configuration:
 
