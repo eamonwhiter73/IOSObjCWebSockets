@@ -18,7 +18,7 @@ Class to help with TLS web sockets, and their respective connections between iOS
   
   - NodeJS docs for TLS server that I use in index.js - https://nodejs.org/api/tls.html#tls_tls_ssl
 
-<h3>Important information regarding setup</h3>
+<h2>Important Info</h2>
 
 To use in your project, copy `IOSObjCWebSockets.h` into your project and import. Also, copy `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. 
 
