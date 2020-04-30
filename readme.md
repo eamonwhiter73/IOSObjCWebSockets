@@ -8,9 +8,9 @@ Class to help with TLS web sockets, and their respective connections between iOS
 
   - https://jamielinux.com/docs/openssl-certificate-authority/introduction.html - tutorial for creating SSL certificates - a certificate authority, intermediate certificate authority, and server/client certificates. Follow exactly, except his default configuration files may not be up to standards - if you find that is the case, use mine.
 
-  NOTE: I have included my configuration files for this process - `openssl_intermediate_ca.conf` and `openssl.conf`. `openssl_intermediate_ca.conf` is referenced in the tutorial as `openssl.conf`, it is just in a different directory (intermediate) than the `openssl.conf` for the main certificate authority. Follow the tutorial and you will see - also I used `.conf` as the extension instead of `.cnf`, which is used in the tutorial, so if you get error messages, check to make sure you are using the right extension for the `openssl.conf` file you are using. You can use either, my choice to use `.conf` was an arbitrary choice due to habits.
-
   - https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework?language=objc - A helpful project to analyze and understand if you are trying to do this, it is written in C, but I adopted a lot of what I am doing from that project.
+
+NOTE: I have included my configuration files for this process - `openssl_intermediate_ca.conf` and `openssl.conf`. `openssl_intermediate_ca.conf` is referenced in the tutorial as `openssl.conf`, it is just in a different directory (intermediate) than the `openssl.conf` for the main certificate authority. Follow the tutorial and you will see - also I used `.conf` as the extension instead of `.cnf`, which is used in the tutorial, so if you get error messages, check to make sure you are using the right extension for the `openssl.conf` file you are using. You can use either, my choice to use `.conf` was an arbitrary choice due to habits.
 
 <h2>RELEVANT OFFICIAL DOCUMENTATION:</h2>
 
