@@ -44,7 +44,7 @@ To start TLS - initiates a listener and an outbound connection, which a test but
         }
     }
 
-The functions I marked with //***CALLING IMPORTANT STARTING FUNCTION HERE*** are the main functions you need to use to start everything, and you should use them in the order that they are used here. You may require a slightly different setup depending on what you are doing.
+The functions I marked with `//***CALLING IMPORTANT STARTING FUNCTION HERE***` are the main functions you need to use to start everything, and you should use them in the order that they are used here. You may require a slightly different setup depending on what you are doing.
 
 To send data:
 
