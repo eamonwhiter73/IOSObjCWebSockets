@@ -22,6 +22,10 @@ To use in your project, import `IOSObjCWebSockets.h` into your file, and also co
 
 See my `ViewController` for how to implement the class.
 
+**IMPORTANT:** in `create_params` function, you will need to change the server name to what you need it to be (where `com.ewizard86.staff` is). You may also need to change the cipher that is being used in this line:
+
+    sec_protocol_options_append_tls_ciphersuite(sec_options, tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256);    
+
 To start TLS - initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server.
 
     const char *localhost = [@"127.0.0.1" UTF8String]; //localhost for your iPhone's listening.
