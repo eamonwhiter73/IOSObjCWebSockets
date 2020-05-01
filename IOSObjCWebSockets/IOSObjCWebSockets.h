@@ -33,6 +33,7 @@
 @protocol IOSObjCWebSocketsDelegate <NSObject>
 
 - (void)receive_data:(NSString*)data_as_string;
+- (void)finished_setup;
 
 @end
 

@@ -68,6 +68,12 @@ The main parts of instantiating are as follows:
 
 See `ViewController` for an example of how to implement.
 
+<h3>Wait for networking to setup</h3>
+
+Depending on what you are doing, some things that you instantiate in your app may need to be instantiated after networking is setup. You can use this delegate function to know when that is, and execute any necessary setup code.
+
+    - (void)finished_setup;
+
 <h3>Send data:</h3>
 
 You must create a `dispatch_data_t` object for `data_param`.

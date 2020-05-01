@@ -269,6 +269,13 @@
                 //… tell the user that you are connected …
                 NSLog(@"connected");
                 
+                id<IOSObjCWebSocketsDelegate> strong_delegate = self.delegate;
+
+                // Our delegate method is optional, so we should
+                // check that the delegate implements it
+                if ([strong_delegate respondsToSelector:@selector(finished_setup)]) {
+                    [strong_delegate finished_setup];
+                }
                 //Start listening
                 [self start_receive_loop:connection];
             } else if (state == nw_connection_state_cancelled) {
@@ -332,12 +339,12 @@
             const char* received_str = [nscontent bytes];
             NSString* rec_cast = [[NSString alloc] initWithBytes:received_str length:[nscontent length] encoding:NSUTF8StringEncoding];
             
-            id<IOSObjCWebSocketsDelegate> strongDelegate = self.delegate;
+            id<IOSObjCWebSocketsDelegate> strong_delegate = self.delegate;
 
             // Our delegate method is optional, so we should
             // check that the delegate implements it
-            if ([strongDelegate respondsToSelector:@selector(receive_data:)]) {
-                [strongDelegate receive_data:rec_cast];
+            if ([strong_delegate respondsToSelector:@selector(receive_data:)]) {
+                [strong_delegate receive_data:rec_cast];
             }
             //NSLog(@"%@", rec_cast);
         }
