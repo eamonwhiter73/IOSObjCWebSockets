@@ -34,7 +34,7 @@ Once you determine what cipher you are using, you will need to set that with thi
 
     [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256];
 
-It is set with `tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256` by default if now cipher is set.
+It is set with `tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256` by default if no cipher is set.
 
 <h2>Client (iOS) Setup</h2>
 
