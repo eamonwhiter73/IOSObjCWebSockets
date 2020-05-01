@@ -32,35 +32,35 @@ The main parts of instantiating are as follows:
 
     #import "IOSObjCWebSockets.h"
 
-1.) Set your class/controller to be a delegate of `IOSObjCWebSocketsDelegate`.
+2.) Set your class/controller to be a delegate of `IOSObjCWebSocketsDelegate`.
 
     @interface YourClass : YourType <IOSObjCWebSocketsDelegate>
 
-2.) Instantiate object.
+3.) Instantiate object.
 
     self.web_socket = [[IOSObjCWebSockets alloc] init];
 
-3.) Set the `delegate`.
+4.) Set the `delegate`.
 
     self.web_socket.delegate = self;
 
-4.) Set server IP.
+5.) Set server IP.
 
     [self.web_socket set_IP:@"your.server.IP"];
 
-5.) Set server port.
+6.) Set server port.
 
     [self.web_socket set_port:@"your.server.port"];
 
-6.) Set server name (DNS of server...mutable).
+7.) Set server name (DNS of server...mutable).
 
     [self.web_socket set_DNS:@"your.server.DNS"];
 
-7.) Set your encryption cipher.
+8.) Set your encryption cipher.
 
      [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256]; //used as default cipher, many choices
 
-8.) Start the sockets.
+9.) Start the sockets.
 
     [self.web_socket start];
 
