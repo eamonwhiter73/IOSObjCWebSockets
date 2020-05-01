@@ -18,75 +18,55 @@ NOTE: I have included my configuration files for this process - `openssl_interme
   
   - NodeJS docs for TLS server that I use in index.js - https://nodejs.org/api/tls.html#tls_tls_ssl
 
-<h2>Important Info</h2>
-
-To use in your project, copy `IOSObjCWebSockets.h` into your project and import. Also, copy `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. 
-
-Instantiate `IOSObjCWebSockets` how you would any other object.
-
-See my `ViewController` for how to implement the class.
-
-**IMPORTANT:** you need to set the name of your server (DNS) using the following line:
-
-    [self.web_socket setDNS:@"your.DNS.server.name.here"];
-
-Once you determine what cipher you are using, you will need to set that with this line:
-
-    [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256];
-
-It is set with `tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256` by default if no cipher is set.
-
 <h2>Client (iOS) Setup</h2>
 
-The code below initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server.
+The code below initiates a listener and an outbound connection, which a test button (when clicked) will send data to the server, and allows you to send and receive data. To use in your project, copy `IOSObjCWebSockets.h` into your project and import. Also, copy `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. 
 
 <h3>Initialize</h3>
 
-    const char *localhost = [@"127.0.0.1" UTF8String]; //localhost for your iPhone's listening.
-    const char *local_port = [@"0" UTF8String]; //Using '0' for the port number allows it to choose what port it uses.
+The main parts of instantiating are as follows:
 
-    //Create outbound and inbound connections
-    dispatch_async(dispatch_get_main_queue(), ^{
-        nw_listener_t g_listener = [self->web_socket create_and_start_listener:localhost port:local_port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
-        if (g_listener == NULL) {
-            NSLog(@"error creating listener");
-        }
-        else {
-            //If listener is successfully created, create the outbound connection
-            
-            const char *ip = [@"10.0.0.225" UTF8String]; //Change to your server IP
-            const char *port = [@"3000" UTF8String]; //Change to the port being used for your TLS server
-            
-            nw_connection_t connection = [self->web_socket create_outbound_connection:ip port:port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
-            if (connection == NULL) {
-                NSLog(@"error, no connection available after creation.");
-            }
-            else {
-                [self->web_socket start_connection:connection]; //Make initial connection ***CALLING IMPORTANT STARTING FUNCTION HERE***
-                [self->web_socket start_receive_loop:connection];//Allow receiving of "welcome!" message from server ***CALLING IMPORTANT STARTING FUNCTION HERE***
-            }
-        }
-    });
+1.) Set as delegate.
 
-The functions I marked with `//***CALLING IMPORTANT STARTING FUNCTION HERE***` are the main functions you need to use to start everything, and you should use them in the order that they are used here. You may require a slightly different setup depending on what you are doing.
+    @interface YourClass : YourType <IOSObjCWebSocketsDelegate>
 
-<h3>Send data:</h3>
+2.) Instantiate object.
 
-    [self send_data:[@"10.0.0.225" UTF8String] port:[@"3000" UTF8String] data_param:data_param];
+    self.web_socket = [[IOSObjCWebSockets alloc] init];
 
-You provide the `ip` and `port` for the server, and the `dispatch_data_t` object that contains the data you are sending.
-
-<h3>Receive data:</h3>
-
-Make sure to set your main controller as the delegate:
-    
-    @interface YourController : UIViewController <IOSObjCWebSocketsDelegate>
-
-    ...
+3.) Set as delegate.
 
     self.web_socket.delegate = self;
 
-You can receive data by implementing this delegate function:
+4.) Set server IP.
+
+    [self.web_socket set_IP:@"your.server.IP"];
+
+5.) Set server port.
+
+    [self.web_socket set_port:@"your.server.port"];
+
+6.) Set server name (DNS of server...mutable).
+
+    [self.web_socket set_DNS:@"your.server.DNS"];
+
+7.) Set your encryption cipher.
+
+     [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256]; //used as default cipher, many choices
+
+8.) Start the sockets.
+
+    [self.web_socket start];
+
+See `ViewController` for an example of how to implement.
+
+<h3>Send data:</h3>
+
+    [self send_data:your.server.IP port:your.server.port data_param:data_param];
+
+<h3>Receive data:</h3>
+
+Implement this delegate method in your class/controller.
 
     - (void)receive_data:(NSString*)data_as_string;
 
@@ -111,4 +91,4 @@ On the server side, I am using a NodeJS TLS server, there are a few important pa
 
 <h3>Final Notes:</h3>
 
-I would start out with the above configuration, and tweak it if neccessary - you shouldn't need to reconfigure much, and you can reference the NodeJS documentation mentioned above to help. The main trouble with figuring this out was getting the certificates right (with all the restrictions) so that the connection would even happen. I commented the code thoroughly, I hope this helps!
+I would start out with the above configuration, and tweak it if neccessary - you shouldn't need to reconfigure much, and you can reference the NodeJS documentation mentioned above to help. The main trouble with figuring this out was getting the certificates right (with all the restrictions) so that the connection would even happen. You will also need to create a client certificate for for your iPhone. To get it onto your iPhone, email it to yourself in the form that it is created in, then on your iPhone, open the email with your iPhone's apple mail client (might not work with any other mail client), then tap to download, tap to install. Then follow the instructions for installing the certificate.  I commented the code thoroughly. I hope this helps! 

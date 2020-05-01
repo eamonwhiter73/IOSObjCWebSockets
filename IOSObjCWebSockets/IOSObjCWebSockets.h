@@ -21,9 +21,12 @@
 - (nw_connection_t)create_outbound_connection:(const char*)host port:(const char*)port;
 - (void)start_connection:(nw_connection_t)connection;
 - (void)start_receive_loop:(nw_connection_t)connection;
-- (void)test:(UIButton*)sender;
-- (void)setDNS:(NSString*)dns;
+- (void)set_DNS:(NSString*)dns;
 - (void)set_encryption:(u_int16_t)encryption;
+- (void)start;
+- (void)set_port:(NSString*)port;
+- (void)set_IP:(NSString*)ip;
+- (void)send_data:(const char*)ip port:(const char*)port data_param:(dispatch_data_t)data_param;
 
 @end
 

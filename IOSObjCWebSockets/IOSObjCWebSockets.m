@@ -17,12 +17,14 @@
 @property (nonatomic) nw_connection_t listener_connection;
 @property (nonatomic) const char* dns;
 @property (nonatomic) uint16_t tls_encryption;
+@property (nonatomic) const char* ip;
+@property (nonatomic) const char* port;
 
 @end
 
 @implementation IOSObjCWebSockets
 
-@synthesize tls_encryption, dns, connected, listener_connection; //io is for dispatch_io, and listener_connection is to store the listener connection
+@synthesize ip, port, tls_encryption, dns, connected, listener_connection; //io is for dispatch_io, and listener_connection is to store the listener connection
 
 - (instancetype)init
 {
@@ -42,9 +44,23 @@
 }
 
 //Setter for DNS
-- (void)setDNS:(NSString*)dns {
+- (void)set_DNS:(NSString*)dns {
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
         self.dns = [dns UTF8String];
+    });
+}
+
+//Setter for server IP
+- (void)set_IP:(NSString*)ip {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+        self.ip = [ip UTF8String];
+    });
+}
+
+//Setter for server IP
+- (void)set_port:(NSString*)port {
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+        self.port = [port UTF8String];
     });
 }
 
@@ -127,6 +143,32 @@
     );
     
     return parameters;
+}
+
+- (void)start {
+    
+    //localhost should probably be port for your iPhone's listening.
+    //Using '0' for the port number allows it to choose what port it uses.
+    
+    //Create outbound and inbound connections
+    dispatch_async(dispatch_get_main_queue(), ^{
+        nw_listener_t g_listener = [self create_and_start_listener:[@"127.0.0.1" UTF8String] port:[@"0" UTF8String]];
+        if (g_listener == NULL) {
+            NSLog(@"error creating listener");
+        }
+        else {
+            //If listener is successfully created, create the outbound connection
+
+            nw_connection_t connection = [self create_outbound_connection:self.ip port:self.port];
+            if (connection == NULL) {
+                NSLog(@"error, no connection available after creation.");
+            }
+            else {
+                [self start_connection:connection]; //Make initial connection
+                [self start_receive_loop:connection];//Allow receiving of "welcome!" message from server.
+            }
+        }
+    });
 }
 
 /*
@@ -239,18 +281,6 @@
     nw_connection_start(connection);
 }
 
-//I tested with data I would be using for a game, this is a helper function to prepare that data, it will be sent when you tap the "Click to test" button.
-- (NSString*)matrixToData:(simd_float4x4)matrix {
-    NSString* string = [[NSString alloc] init];
-    for(int x = 0; x < 4; x++) {
-        for(int y = 0; y < 4; y++) {
-            string = [string stringByAppendingFormat:@"%f,", matrix.columns[x][y]];
-        }
-    }
-    
-    return string;
-}
-
 /*
 * send_data()
 * Send data using connection.
@@ -271,42 +301,6 @@
         });
     });
 }
-/*
-* test()
-* Send data test, fires when "Click to test" button is tapped.
-*/
-- (void)test:(UIButton *)sender {
-    
-    //Creating test data in the form of a transformation matrix
-    simd_float4x4 test_matrix_data = matrix_identity_float4x4;
-    test_matrix_data.columns[0] = simd_make_float4(1, 5, 3, 8);
-    test_matrix_data.columns[0] = simd_make_float4(3, 1, 7, 2);
-    test_matrix_data.columns[0] = simd_make_float4(3, 9, 1, 2);
-    test_matrix_data.columns[0] = simd_make_float4(9, 3, 4, 1);
-    
-    NSString* forBytes = [self matrixToData:test_matrix_data];
-    NSData* tempMute = [forBytes dataUsingEncoding:NSUTF8StringEncoding];
-        
-    uint8_t *read_bytes = (uint8_t *)[[[NSMutableData alloc] initWithData:tempMute] mutableBytes];
-    NSUInteger data_len = [tempMute length];
-            
-    if(data_len > 0) { //If there is data
-        
-        uint8_t buf[data_len];
-        memcpy(buf, read_bytes, data_len); //Copy data to read_bytes and memory
-        
-        //Create data to be sent
-        dispatch_data_t data_param = dispatch_data_create(buf, data_len, dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
-        
-        //Create a "new" connection (everytime you send data requires a new connection, even if you are sending data to the same server as the previous connection)
-        
-        [self send_data:[@"10.0.0.225" UTF8String] port:[@"3000" UTF8String] data_param:data_param];
-    }
-    else {
-        NSLog(@"nothing came through");
-    }
-}
-
 
 /*
  * receive_loop()
