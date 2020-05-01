@@ -47,7 +47,7 @@ The code below initiates a listener and an outbound connection, which a test but
 
     //Create outbound and inbound connections
     dispatch_async(dispatch_get_main_queue(), ^{
-          nw_listener_t g_listener = [self->web_socket create_and_start_listener:localhost port:local_port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
+        nw_listener_t g_listener = [self->web_socket create_and_start_listener:localhost port:local_port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
         if (g_listener == NULL) {
             NSLog(@"error creating listener");
         }
