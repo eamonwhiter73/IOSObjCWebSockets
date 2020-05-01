@@ -10,7 +10,7 @@ Class to help with TLS web sockets, and their respective connections between iOS
 
   - https://developer.apple.com/documentation/network/implementing_netcat_with_network_framework?language=objc - A helpful project to analyze and understand if you are trying to do this, it is written in C, but I adopted a lot of what I am doing from that project.
 
-NOTE: I have included my configuration files for this process - `openssl_intermediate_ca.conf` and `openssl.conf`. `openssl_intermediate_ca.conf` is referenced in the tutorial as `openssl.conf`, it is just in a different directory (intermediate) than the `openssl.conf` for the main certificate authority. Follow the tutorial and you will see - also I used `.conf` as the extension instead of `.cnf`, which is used in the tutorial, so if you get error messages, check to make sure you are using the right extension for the `openssl.conf` file you are using. You can use either, my choice to use `.conf` was an arbitrary choice due to habits.
+**NOTE:** I have included my configuration files for this process, one for the main certificate authority, and one for an intermediate certificate authority. Follow the tutorial @ the link above for how to create the certificates correctly. As far as I can tell, you need a certificate authority AND an intermediate certicate authority, to sign your server and client certificates. It does not seem like a self-signed certificate is enough if you want to configure TLS at all to make a secure handshake. It took a lot of tweaking for me to get this part right - any errors that you have, I would first assume that it is with your certificate creation.
 
 <h2>RELEVANT OFFICIAL DOCUMENTATION:</h2>
 
