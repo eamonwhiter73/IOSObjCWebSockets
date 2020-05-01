@@ -76,6 +76,14 @@ You provide the `ip` and `port` for the server, and the `dispatch_data_t` object
 
 <h3>Receive data:</h3>
 
+Make sure to set your main controller as the delegate:
+    
+    @interface YourController : UIViewController <IOSObjCWebSocketsDelegate>
+
+    ...
+    
+    self.web_socket.delegate = self;
+
 You can receive data by implementing this delegate function:
 
     - (void)receive_data:(NSString*)data_as_string;
