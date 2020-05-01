@@ -62,11 +62,13 @@ See `ViewController` for an example of how to implement.
 
 <h3>Send data:</h3>
 
+You must create a `dispatch_data_t` object for `data_param`.
+
     [self send_data:your.server.IP port:your.server.port data_param:data_param];
 
 <h3>Receive data:</h3>
 
-Implement this delegate method in your class/controller.
+Implement this delegate method in your class/controller, all of the received data gets sent to it.
 
     - (void)receive_data:(NSString*)data_as_string;
 
