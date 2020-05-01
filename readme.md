@@ -95,8 +95,8 @@ On the server side, I am using a NodeJS TLS server, there are a few important pa
 
       // This is necessary only if the client uses a self-signed certificate.
       ca: [ fs.readFileSync('/Users/eamonwhite/ar_pong/corona_pong/certs/root/ca/intermediate/certs/ca-chain.cert.pem') ], //This should be your chain file, as created during the process described here https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
-      passphrase: 'blahjour7', //Password, if any, for your certificates - a reason to use the same password for all of your certificates.
-      hostname: 'com.ewizard86.staff' //Must include to make iOS happy, this should be the same as the DNS information included in your certificates per these restrictions https://support.apple.com/en-us/HT210176
+      passphrase: 'xxx', //Password, if any, for your certificates - a reason to use the same password for all of your certificates.
+      hostname: 'xxx.xxx.xxx' //Must include to make iOS happy, this should be the same as the DNS information included in your certificates per these restrictions https://support.apple.com/en-us/HT210176
     };
 
 <h3>Final Notes:</h3>
