@@ -46,25 +46,27 @@ The code below initiates a listener and an outbound connection, which a test but
     const char *local_port = [@"0" UTF8String]; //Using '0' for the port number allows it to choose what port it uses.
 
     //Create outbound and inbound connections
-    dispatch_async(dispatch_get_main_queue(), ^{nw_listener_t g_listener = [self->web_socket create_and_start_listener:localhost port:local_port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
-    if (g_listener == NULL) {
-        NSLog(@"error creating listener");
-    }
-    else {
-        //If listener is successfully created, create the outbound connection
-        
-        const char *ip = [@"10.0.0.225" UTF8String]; //Change to your server IP
-        const char *port = [@"3000" UTF8String]; //Change to the port being used for your TLS server
-        
-        nw_connection_t connection = [self->web_socket create_outbound_connection:ip port:port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
-        if (connection == NULL) {
-            NSLog(@"error, no connection available after creation.");
+    dispatch_async(dispatch_get_main_queue(), ^{
+          nw_listener_t g_listener = [self->web_socket create_and_start_listener:localhost port:local_port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
+        if (g_listener == NULL) {
+            NSLog(@"error creating listener");
         }
         else {
-            [self->web_socket start_connection:connection]; //Make initial connection ***CALLING IMPORTANT STARTING FUNCTION HERE***
-            [self->web_socket start_receive_loop:connection];//Allow receiving of "welcome!" message from server ***CALLING IMPORTANT STARTING FUNCTION HERE***
+            //If listener is successfully created, create the outbound connection
+            
+            const char *ip = [@"10.0.0.225" UTF8String]; //Change to your server IP
+            const char *port = [@"3000" UTF8String]; //Change to the port being used for your TLS server
+            
+            nw_connection_t connection = [self->web_socket create_outbound_connection:ip port:port]; //***CALLING IMPORTANT STARTING FUNCTION HERE***
+            if (connection == NULL) {
+                NSLog(@"error, no connection available after creation.");
+            }
+            else {
+                [self->web_socket start_connection:connection]; //Make initial connection ***CALLING IMPORTANT STARTING FUNCTION HERE***
+                [self->web_socket start_receive_loop:connection];//Allow receiving of "welcome!" message from server ***CALLING IMPORTANT STARTING FUNCTION HERE***
+            }
         }
-    }
+    });
 
 The functions I marked with `//***CALLING IMPORTANT STARTING FUNCTION HERE***` are the main functions you need to use to start everything, and you should use them in the order that they are used here. You may require a slightly different setup depending on what you are doing.
 
@@ -81,7 +83,7 @@ Make sure to set your main controller as the delegate:
     @interface YourController : UIViewController <IOSObjCWebSocketsDelegate>
 
     ...
-    
+
     self.web_socket.delegate = self;
 
 You can receive data by implementing this delegate function:

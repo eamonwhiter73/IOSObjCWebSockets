@@ -147,7 +147,6 @@
         
     nw_listener_set_state_changed_handler(listener, ^(nw_listener_state_t state, nw_error_t error) {
         //Listener state changes here
-        
         error ? nw_error_get_error_code(error) : 0;
         if(error > 0) {
             NSLog(@"error in listener state: %@", error);
