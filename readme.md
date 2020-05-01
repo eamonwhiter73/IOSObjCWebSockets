@@ -12,6 +12,8 @@ Class to help with TLS web sockets, and their respective connections between iOS
 
 **NOTE:** I have included my configuration files for this process, one for the main certificate authority, and one for an intermediate certificate authority. Follow the tutorial @ the link above for how to create the certificates correctly. As far as I can tell, you need a certificate authority AND an intermediate certicate authority, to sign your server and client certificates. It does not seem like a self-signed certificate is enough if you want to configure TLS at all to make a secure handshake. It took a lot of tweaking for me to get this part right - any errors that you have, I would first assume that it is with your certificate creation.
 
+**IMPORTANT:** If you use my configuration files, you need to change the DNS name all the way at the bottom of both files to be the DNS of your server.
+
 <h2>RELEVANT OFFICIAL DOCUMENTATION:</h2>
 
   - The Apple documentation for Network package (Network.h) is helpful, it is the basis for the iOS side of the TLS socket.
