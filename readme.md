@@ -64,7 +64,7 @@ See `ViewController` for an example of how to implement.
 
 You must create a `dispatch_data_t` object for `data_param`.
 
-    [self send_data:your.server.IP port:your.server.port data_param:data_param];
+    [self.web_socket send_data:your.server.IP port:your.server.port data_param:data_param];
 
 <h3>Receive data:</h3>
 
