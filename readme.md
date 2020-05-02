@@ -22,7 +22,7 @@ Class to help with TLS web sockets, and their respective connections between iOS
 
 <h2>Client (iOS) Setup</h2>
 
-Upon use of this class, an inbound connection (listener) is created, as well as an outbound connection. One is also able to easily send and receive data via a `send_data` method, and a `receive_data` delegate method. If you run the project, the `ViewController` creates and presents a button that you can tap to test sending data. I expect the most difficult part of this process for anyone to be creating the certificates correctly. If you follow the link above exactly for creating certificates, and use my `.conf` files, you shouldn't have too many problems to surmount, if any.
+Upon use of this class, an inbound connection (listener) is created, as well as an outbound connection. One is also able to easily send and receive data via a `send_data` method, and a `receive_data` delegate method. If you run the project, the `ViewController` creates and presents a button that you can tap to test sending data. I expect the most difficult part of this process for anyone to be creating the certificates correctly. If you follow the link above exactly for creating certificates, and use my `.cnf` files, you shouldn't have too many problems to surmount, if any.
 
 To use in your project, copy `IOSObjCWebSockets.h` into your project directory, and import it. Also, copy `IOSObjCWebSockets.m` to the same directory as `IOSObjCWebSockets.h`. 
 
