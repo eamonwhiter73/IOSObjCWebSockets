@@ -60,7 +60,7 @@ The main parts of instantiating are as follows:
 
 8.) Set your encryption cipher.
 
-     [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256]; //used as default cipher, many choices
+    [self.web_socket set_encryption:tls_ciphersuite_ECDHE_RSA_WITH_AES_128_GCM_SHA256]; //used as default cipher, many choices
 
 9.) Start the sockets.
 
