@@ -80,8 +80,12 @@
         
         sec_protocol_options_set_min_tls_protocol_version(sec_options, tls_protocol_version_TLSv10); //below TLSv1 is defnitely not advisable
         sec_protocol_options_set_max_tls_protocol_version(sec_options, tls_protocol_version_TLSv13); //set max TLS version to TLSv1.3 (you will probably be using TLSv1.2)
-        
-        sec_protocol_options_set_tls_server_name(sec_options, self.dns); //VERY IMPORTANT, needed for connection to work. Must be the same as the DNS name that you are using for your server. See this for a great guide for how to create certificates that work with TLS and iOS -> https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
+        if(self.dns != NULL) {
+            sec_protocol_options_set_tls_server_name(sec_options, self.dns); //VERY IMPORTANT, needed for connection to work. Must be the same as the DNS name that you are using for your server. See this for a great guide for how to create certificates that work with TLS and iOS -> https://jamielinux.com/docs/openssl-certificate-authority/introduction.html
+        }
+        else {
+            NSLog(@"***IMPORTANT*** YOU NEED TO SET THE DNS ***IMPORTANT***");
+        }
         
         sec_protocol_options_set_verify_block(sec_options, ^(sec_protocol_metadata_t  _Nonnull metadata, sec_trust_t  _Nonnull trust_ref, sec_protocol_verify_complete_t  _Nonnull complete) {
             
@@ -158,14 +162,18 @@
         }
         else {
             //If listener is successfully created, create the outbound connection
-
-            nw_connection_t connection = [self create_outbound_connection:self.ip port:self.port];
-            if (connection == NULL) {
-                NSLog(@"error, no connection available after creation.");
+            if(self.ip != NULL && self.port != NULL) {
+                nw_connection_t connection = [self create_outbound_connection:self.ip port:self.port];
+                if (connection == NULL) {
+                    NSLog(@"error, no connection available after creation.");
+                }
+                else {
+                    [self start_connection:connection]; //Make initial connection
+                    [self start_receive_loop:connection];//Allow receiving of "welcome!" message from server.
+                }
             }
             else {
-                [self start_connection:connection]; //Make initial connection
-                [self start_receive_loop:connection];//Allow receiving of "welcome!" message from server.
+                NSLog(@"***IMPORTANT*** YOU NEED TO SET THE SERVER IP AND/OR THE SERVER PORT ***IMPORTANT***");
             }
         }
     });
