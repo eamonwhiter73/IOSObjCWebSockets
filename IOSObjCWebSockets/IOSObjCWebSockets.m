@@ -261,6 +261,7 @@
  * start the connection.
  */
 - (void)start_connection:(nw_connection_t)connection {
+    NSLog(@"connection logged: %@", [connection debugDescription]);
     nw_connection_set_queue(connection, dispatch_get_global_queue(QOS_CLASS_UTILITY, 0));
     nw_connection_set_state_changed_handler(connection, ^(nw_connection_state_t state, nw_error_t error) {
         if(error) {
@@ -292,6 +293,7 @@
         }
     });
     
+    NSLog(@"connection before starting: %@", connection);
     //Actually start the connection
     nw_connection_start(connection);
 }
